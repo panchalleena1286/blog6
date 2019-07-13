@@ -1,0 +1,41 @@
+<body class="bg-success">
+	<div class="row ">
+		
+		<div class="col-md-5 ml-5">	
+			<div class="card ml-5 mt-5">
+				
+					<%= image_tag @article.cover_image.url, class: "c" %>
+					<div class="card-body">
+					<div>
+						<strong>Title:</strong>
+						<%= @article.title %>
+					</div>
+
+					<div>
+						<strong>Text:</strong>
+						<%= @article.text %>
+					</div>
+
+					<div>
+						<strong>ckeditor:</strong>
+						<%= @article.template_text.html_safe %>
+					</div>
+
+					<%= link_to 'Edit', edit_article_path(@article), class: "btn btn-primary" %> |
+					<%= link_to 'Back', articles_path, class: "btn btn-secondary" %>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-5 ml-5 ">
+			<div class="card mt-5">
+					<h2 class="card-header">Comments</h2>
+					<%= render @article.comments %>
+					
+					<h2 class="card-text">Add a comment:</h2>
+					<%= render 'comments/form' %>
+				</div>
+			</div>
+		</div>
+	
+</body>
